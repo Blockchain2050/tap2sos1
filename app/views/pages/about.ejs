@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+    <!--<![endif]-->
+
+    <head>
+    <% include ../partials/header %>
+    </head>
+
+    <body>
+
+    <% include ../partials/header %>
+        <section id="description">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="feature_header text-center" >
+                        </br></br></br>
+                            <h1 class="feature_title">About</h1>
+                            <p class="about">
+                                <img src="images/aratos_group.jpg" alt="aratos_group"><br><br>
+                                An Aratos Group product.<br><br>
+                                <img src="images/aratos_technologies.png" alt="aratos_technologies">
+                                <br><br>
+                                Aratos Technologies (Greece)
+                                <br>                                   
+                                <a  class="about-a" target="_blank" href="http://aratos.gr">Visit the website</a><br><br>
+                                <img src="images/aratos_sytems.jpg" alt="aratos_technologies">
+                                <br><br>
+                                Aratos Systems (The Netherlands)
+                                <br>
+                                <a class="about-a" target="_blank" href="http://aratos-systems.com/">Visit the website</a>
+                            </p>
+                            <div class="divider"></div>
+                            <p class="about">
+                                We are always on the lookout for new agents and distributors worldwide. If you are interested in our product range and you believe we could be the right partner for your business, please contact us via info@aratos.gr.
+                                Please mention your current role, business name, a brief description of the successful experience you have in selling similar products into your local market, and your contact details.
+                            </p>
+                            <div class="divider"></div>
+                            <form   class="form-register" method="post" action="sendabout.php" >
+                                <div class="form">
+                                    <label>
+                                        <span>Country:</span><br/> 
+                                        <input value="<?= @$_SESSION['country'] ?>" type="text" name="country"/>
+                                    </label>
+                                    <br/>   
+                                    <label>
+                                        <span>First Name:</span><br/> 
+                                        <input value="<?= @$_SESSION['fname'] ?>" type="text" name="fname"/>
+                                    </label>
+                                    <br/> 
+                                    <label>
+                                        <span>Surname:</span><br/> 
+                                        <input value="<?= @$_SESSION['sname'] ?>" type="text" name="sname"/>
+                                    </label>
+                                    <br/> 
+                                    <label>
+                                        <span>Designation:</span><br/> 
+                                        <input value="<?= @$_SESSION['design'] ?>" type="text" name="design"/>
+                                    </label>
+                                    <br/>  
+                                    <label>
+                                        <span>Company's Name:</span><br/> 
+                                        <input value="<?= @$_SESSION['cname'] ?>" type="text" name="cname"/>
+                                    </label>
+                                    <br/>
+                                    <label>
+                                        <span>Email:</span><br/> 
+                                        <input value="<?= @$_SESSION['email'] ?>" type="text" name="email"/>
+                                    </label>
+                                    <br/>
+                                    <label>
+                                        <span>Contact Number:</span><br/> 
+                                        <input value="<?= @$_SESSION['cnumber'] ?>" type="text" name="cnumber"/>
+                                    </label>
+                                    <br/>
+                                    <label>
+                                        <span>Message:</span><br/> 
+                                        <textarea name="mssg"><?= @$_SESSION['mssg'] ?></textarea>
+
+                                    </label>
+                                    <br/>
+
+                                    <br> 
+                                    <img id="captcha" src="./securimage/securimage_show.php" alt="CAPTCHA Image" />  
+                                    <br>
+                                    <input type="text" name="captcha_code" size="10" maxlength="6" />
+
+                                    <a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false">[ Different Image ]</a><br>
+                                    <input type="submit" value="submit" />
+                                    <br>
+
+                                </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </body>
+</html>
+

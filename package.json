@@ -1,0 +1,47 @@
+{
+  "name": "nodejs-express-sequelize-mysql",
+  "version": "1.0.0",
+  "description": "Node.js Rest Apis with Express, Sequelize & MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest",
+    "api",
+    "sequelize",
+    "mysql"
+  ],
+  "author": "bezkoder",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bs58": "^4.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^1.0.0",
+    "express": "^4.17.1",
+    "fast-csv": "^4.3.6",
+    "file-saver": "^2.0.2",
+    "formidable": "^1.2.2",
+    "json-eval": "^1.0.8",
+    "jspdf": "^2.5.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.0.2",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.4.8",
+    "paypal-rest-sdk": "^1.8.1",
+    "pg": "^8.7.1",
+    "pm2": "^5.2.0",
+    "sequelize": "^5.21.2",
+    "sharp": "^0.26.0",
+    "utf8": "^3.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.1"
+  }
+}
