@@ -52,6 +52,16 @@ exports.sendEmail = (req,res) => {
       subject: 'Tap2sos - Blockchain ID',
       text: info
     };
+  
+     transporter.sendMail(mailOptions, function(error, info){
+       console.log("hii");
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+        transporter.close();
+      }
+    });
     var info1 = 'There has been a new purchase for TAP2SOS\n'+
     'The mail is: ' + req.body.email +'\n'+
     '\n' +
@@ -68,14 +78,7 @@ exports.sendEmail = (req,res) => {
       text: info1
     };
     //Notification in case something goes wrong
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-        transporter.close();
-      }
-    });
+ 
     transporter.sendMail(mailOptions1, function(error1, info1){
       if (error1) {
         console.log(error1);
