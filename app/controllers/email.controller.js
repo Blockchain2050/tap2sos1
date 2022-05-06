@@ -42,7 +42,7 @@ exports.sendEmail = (req, res) => {
     console.log("tagid"+tagID);
     //defines the sender, the recipient and the subject of the email
     var mailOptions = {
-      from: 'newcotech@tap2sos.com',
+      from: 'newco@tap2sos.com',
       to: req.body.email,
       subject: 'Tap2sos - Blockchain ID',
       text: info
@@ -59,7 +59,7 @@ exports.sendEmail = (req, res) => {
     'Please contact person to register its tag'
 
     var mailOptions1 = {
-      from: 'newcotech@tap2sos.com',
+      from: 'newco@tap2sos.com',
       to: 'info@aratos.gr',
       subject: 'Tap2sos - Purchase ID',
       text: info1
