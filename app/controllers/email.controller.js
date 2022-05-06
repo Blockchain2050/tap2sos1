@@ -26,7 +26,6 @@ exports.sendEmail = (req, res) => {
         pass: "F=oLwalU8Trf"
     }
   });
-    
     // create encoded tagID
     var credentialString = Buffer.from('?' + req.body.username + '?' + password,'binary').toString('base64');
     var tagID = 'https://newco.tap2sos.com/tag'+ '?' + credentialString;
@@ -39,7 +38,6 @@ exports.sendEmail = (req, res) => {
     'Your Blockchain ID is: ' + password+'\n'+
     '\n'+
     'Your Login URL is: ' + tagID +'\n'+
-    
     'This is an automatic email, do not answer it back'
     console.log("tagid"+tagID);
     //defines the sender, the recipient and the subject of the email
@@ -57,7 +55,6 @@ exports.sendEmail = (req, res) => {
     '\n'+
     'The Login URL is: ' + tagID +'\n'+
     'The URL id is: ' + req.body.id +'\n'+
-    
     'This is an automatic email, do not answer it back\n'
     'Please contact person to register its tag'
 
