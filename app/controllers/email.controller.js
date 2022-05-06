@@ -5,7 +5,7 @@ require('dotenv').config(); //this file defines the sending email and its creden
 var bs58 = require('bs58')
 
 //function for sending emails
-exports.sendEmail = (req, res) => {
+// /exports.sendEmail = (req, res) => {
   var encrypted = req.body.hash;
  console.log(encrypted);
   //encode the hash with base58 encoding
@@ -89,5 +89,5 @@ exports.sendEmail = (req, res) => {
       }
 
     });
+// }
 
-}
