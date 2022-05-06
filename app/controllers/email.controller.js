@@ -1,4 +1,4 @@
-/Controller to send emails after sign up with info.
+//Controller to send emails after sign up with info.
 //Email controller requiments
 var nodemailer = require('nodemailer');
 require('dotenv').config(); //this file defines the sending email and its credentials
