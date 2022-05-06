@@ -1,11 +1,10 @@
-//Controller to send emails after sign up with info.
+/Controller to send emails after sign up with info.
 //Email controller requiments
-var nodemailer = require('nodemailer'); 
+var nodemailer = require('nodemailer');
 require('dotenv').config(); //this file defines the sending email and its credentials
 var bs58 = require('bs58')
-
 //function for sending emails
-// /exports.sendEmail = (req, res) => {
+const sendEmail = (req, res) => {
   var encrypted = req.body.hash;
  console.log(encrypted);
   //encode the hash with base58 encoding
@@ -14,9 +13,9 @@ var bs58 = require('bs58')
   var transporter = nodemailer.createTransport({
       host: "tap2sos.com",
       port: 465,
-    //  if true the connection will use TLS when connecting to server. If false (the 
-    // default) then TLS is used if server supports the STARTTLS extension. In most 
-    // cases set this value to true if you are connecting to port 465. For port 587 or 
+    //  if true the connection will use TLS when connecting to server. If false (the
+    // default) then TLS is used if server supports the STARTTLS extension. In most
+    // cases set this value to true if you are connecting to port 465. For port 587 or
     // 25 keep it false
     secure: true, // use TLS
     auth: {
@@ -26,13 +25,19 @@ var bs58 = require('bs58')
         pass: "OyF2elcnE_3F"
     }
   });
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Server is ready to take our messages");
+    }
+  })
     // create encoded tagID
     var credentialString = Buffer.from('?' + req.body.username + '?' + password,'binary').toString('base64');
     var tagID = 'https://newco.tap2sos.com/tag'+ '?' + credentialString;
-
     //defines the message of the email
     var info = 'Welcome to the Tap2Sos platform supported be the LTO network\n'+
-    'You have Signed up in the Tap2Sos system with the credentials below: \n'+ 
+    'You have Signed up in the Tap2Sos system with the credentials below: \n'+
     'Your Username is: ' + req.body.username +'\n'+
     '\n' +
     'Your Blockchain ID is: ' + password+'\n'+
@@ -47,7 +52,6 @@ var bs58 = require('bs58')
       subject: 'Tap2sos - Blockchain ID',
       text: info
     };
-
     var info1 = 'There has been a new purchase for TAP2SOS\n'+
     'The mail is: ' + req.body.email +'\n'+
     '\n' +
@@ -57,18 +61,12 @@ var bs58 = require('bs58')
     'The URL id is: ' + req.body.id +'\n'+
     'This is an automatic email, do not answer it back\n'
     'Please contact person to register its tag'
-
     var mailOptions1 = {
       from: 'newco@tap2sos.com',
       to: 'info@aratos.gr',
       subject: 'Tap2sos - Purchase ID',
       text: info1
     };
-
-
-
-
-
     //Notification in case something goes wrong
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
@@ -77,9 +75,7 @@ var bs58 = require('bs58')
         console.log('Email sent: ' + info.response);
         transporter.close();
       }
-
     });
-
     transporter.sendMail(mailOptions1, function(error1, info1){
       if (error1) {
         console.log(error1);
@@ -87,7 +83,6 @@ var bs58 = require('bs58')
         console.log('Email sent: ' + info1.response);
         transporter.close();
       }
-
     });
-// }
-
+}
+module.exports = sendEmail()
