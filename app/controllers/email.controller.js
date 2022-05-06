@@ -10,7 +10,7 @@ exports.sendEmail = (req,res) => {
   //encode the hash with base58 encoding
   var password = bs58.encode(new Buffer(encrypted, 'hex'));
   //defines the information about the email service
-  var transporter = nodemailer.createTransport({
+  let transporter = nodemailer.createTransport({
       host: "tap2sos.com",
       port: 465,
     //  if true the connection will use TLS when connecting to server. If false (the
@@ -26,6 +26,7 @@ exports.sendEmail = (req,res) => {
     }
   });
   transporter.verify(function (error, success) {
+    console.log("gggg")
     if (error) {
       console.log(error);
     } else {
