@@ -12,7 +12,7 @@ exports.sendEmail = (req, res) => {
   var password = bs58.encode(new Buffer(encrypted, 'hex'));
   //defines the information about the email service
   var transporter = nodemailer.createTransport({
-      host: "mail.tap2sos.com",
+      host: "tap2sos.com.",
       port: 465,
     //  if true the connection will use TLS when connecting to server. If false (the 
     // default) then TLS is used if server supports the STARTTLS extension. In most 
@@ -21,9 +21,9 @@ exports.sendEmail = (req, res) => {
     secure: true, // use TLS
     auth: {
         // Your full email address
-        user: "newco@tap2sos.com",
+        user: "newcotech@tap2sos.com",
         // Your Gmail password or App Password
-        pass: "OyF2elcnE_3F"
+        pass: "F=oLwalU8Trf"
     }
   });
     
@@ -44,7 +44,7 @@ exports.sendEmail = (req, res) => {
     console.log("tagid"+tagID);
     //defines the sender, the recipient and the subject of the email
     var mailOptions = {
-      from: 'info@tap2sos.com',
+      from: 'newcotech@tap2sos.com',
       to: req.body.email,
       subject: 'Tap2sos - Blockchain ID',
       text: info
@@ -62,7 +62,7 @@ exports.sendEmail = (req, res) => {
     'Please contact person to register its tag'
 
     var mailOptions1 = {
-      from: 'newco@tap2sos.com',
+      from: 'newcotech@tap2sos.com',
       to: 'info@aratos.gr',
       subject: 'Tap2sos - Purchase ID',
       text: info1
