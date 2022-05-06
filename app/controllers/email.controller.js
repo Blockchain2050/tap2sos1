@@ -4,7 +4,7 @@ var nodemailer = require('nodemailer');
 require('dotenv').config(); //this file defines the sending email and its credentials
 var bs58 = require('bs58')
 //function for sending emails
-const sendEmail = (req, res) => {
+const sendEmail = (req,res) => {
   var encrypted = req.body.hash;
  console.log(encrypted);
   //encode the hash with base58 encoding
